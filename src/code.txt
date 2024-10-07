@@ -1,0 +1,36 @@
+import React , {useState} from 'react'
+import { DecrementAction, IncrementAction } from '../action'
+import { connect } from 'react-redux'
+
+const Code = ({value, IncrementAction, DecrementAction}) => {
+    // const [count, setCount] = useState(0)
+  return (
+    <>
+    <h1>Play Button</h1>
+    <div className="card">
+      <button onClick={IncrementAction}>
+        Click to increment
+      </button>
+
+      <button onClick={DecrementAction}>
+        Click to decrement 
+      </button>
+
+      <h2>The value is {value}</h2>
+      
+    </div>
+    </>
+  )
+}
+
+//mapping function for state
+
+const mapStateToProps=(state)=>({value:state})
+//mapping function for actions
+
+const mapDispatchToProps={
+  IncrementAction,
+  DecrementAction
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Code)
